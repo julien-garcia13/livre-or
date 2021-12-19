@@ -1,12 +1,8 @@
 <meta charset="utf-8" />
 <?php
 session_start();
-if (!isset($_SESSION['id'])) {
-  header('Location:index.php');
-  die(); // Inaccesibilité en cas de session absente ou fausse. Redirection vers index.
-}
-$bdd = new PDO('mysql:host=localhost;dbname=livreor;charset=utf8', 'root', ''); // Je me connecte à phpMyAdmin en appelant ma BDD 'livreor'.
-// On récupere les données de l'utilisateur
+$bdd = new PDO('mysql:host=localhost;dbname=julien-garcia_livre-d-or;charset=utf8', 'livre-d-or', '~84kAh1p'); // Je me connecte à phpMyAdmin en appelant ma BDD 'livre-or'.
+$_SESSION['id'];
 $request = $bdd->prepare('SELECT * FROM utilisateurs WHERE id = ?');
 $request->execute(array($_SESSION['id']));
 $data = $request->fetch();
