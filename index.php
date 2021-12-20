@@ -211,12 +211,13 @@ footer
   <main>
     <p1>Bienvenue dans le livret d'Or</p1><br />
     <div class="bouttons">
-      <a href="inscription.php"><button>Inscription</button></a>
-      <a href="connexion.php"><button>Connexion</button></a>
-    </div>
-  </main>
-  <footer>
-    <a href="https://github.com/julien-garcia13/livre-or"><img class="GitHub" src="GitHub_Logo.png" alt="logo"></img></a>
-  </footer>
-</body>
+        <a href="inscription.php"><button>Inscription</button></a>
+        <a href="livre-or.php"><button>Livre d'Or</button></a> <!-- Accèdez au Livre d'Or. -->
+        <a href="connexion.php"><button>Connexion</button></a>
+      </div>
+    </main>
+    <footer>
+        <a href="https://github.com/julien-garcia13/livre-or"><img class="GitHub" src="GitHub_Logo.png" alt="logo"></img></a>
+    </footer>
+    </body>
 </html>
