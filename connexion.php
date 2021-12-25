@@ -34,8 +34,23 @@ if(isset($_POST['Connexion']))
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> <!-- Bootstrap -->
         <title>Connexion - Livre d'Or</title>
         <style>
+          /* Header w/ Bootstrap */
+          *,::before, ::after
+        {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+          position: relative;
+        }
+        body
+        {
+          height: 100vh;
+        }
+        /* Fin de Bootstrap */
         @keyframes move-background
         {
           from
@@ -44,19 +59,19 @@ if(isset($_POST['Connexion']))
           }
           to
           { 
-    -webkit-transform: translate3d(1000px, 0px, 0px);
-  }
-}
-@-webkit-keyframes move-background
-{
-  from
-  {
-    -webkit-transform: translate3d(0px, 0px, 0px);
-  }
-  to
-  { 
-    -webkit-transform: translate3d(1000px, 0px, 0px);
-  }
+            -webkit-transform: translate3d(1000px, 0px, 0px);
+          }
+        }
+        @-webkit-keyframes move-background
+        {
+          from
+          {
+            -webkit-transform: translate3d(0px, 0px, 0px);
+          }
+          to
+          { 
+            -webkit-transform: translate3d(1000px, 0px, 0px);
+          }
 }
 @-moz-keyframes move-background
 {    
@@ -80,7 +95,7 @@ if(isset($_POST['Connexion']))
     -webkit-transform: translate3d(1000px, 0px, 0px);
   }
 }
-.background-container
+.fond-contenu
 {
   position: fixed;
   top: 0;
@@ -122,7 +137,7 @@ if(isset($_POST['Connexion']))
   height: 100%;
   background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png") repeat;
   background-size: 1000px 1000px;
-  position: fixed;
+  position: absolute;
   right: 0;
   top: 0;
   bottom: 0;
@@ -174,8 +189,8 @@ footer
     height: 64px;
     display: flex;
     justify-content: center;
-    margin-top: 14%;
-    position: absolute;
+    margin-top: 35%;
+    position: relative;
 }
 .formulaire
 {
@@ -189,26 +204,12 @@ footer
     height: 500px;
     border-radius: 10px;
     color: white;
-    position: relative;
+    position: fixed;
     margin-left: 36%;
 }
 input
 {
     display: flex;
-}
-.acceuil
-{
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10%;
-    border: solid;
-    width: 700px;
-    height: 700px;
-    border-radius: 10px;
-    color: white;
 }
 .boutton
 {
@@ -216,30 +217,33 @@ input
     display: flex;
     flex-direction: row;
     justify-content: center;
-    position: relative;
+    position: fixed;
     margin-left: 15%;
 }
 </style>
 </head>
 <body>
-  <div class="background-container">
+  <div class="fond-contenu">
     <img class="moon" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/moon2.png" alt="">
     <div class="stars"></div>
     <div class="twinkling"></div>
     <div class="clouds"></div>
   </div>
-  <main>
+  <!-- Header réalisé avec Bootstrap -->
+  <header>
+    <nav class="nav bg-dark justify-content-center">
+      <a href="inscription.php" class="nav-link text-light">S'inscrire</a>
+      <a href="livre-or.php" class="nav-link text-light">Livre d'Or</a>
+      <a href="index.php" class="nav-link text-light">Accueil</a>
+    </nav>
+  </header>
+<main>
     <p1>Connexion</p1><br />
     <div class="formulaire">
       <form method="POST" action="connexion.php" align="center">
         <input type="text" name="login" placeholder="Votre psuedo...">Login :<br /></input>
         <input type="password" name="password">Mot de passe :<br /></input>
         <input type="submit" value="Connexion" name="Connexion"></input>
-      </form>
-      <form method="POST" action="index.php">
-        <a href="index.php">
-          <button>Revenir en arrière</button>
-        </a>
       </form>
     </div>
   </main>

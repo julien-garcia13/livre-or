@@ -20,6 +20,7 @@ if(isset($_POST['submit']))
             $_SESSION['id'] = $grabData->fetch()['id'];
         }
         echo "Félicitations, " . $_POST['login'] . " tu es inscris dans mon livre."; // Message que l'inscription a bien été prise en compte.
+        header('Location: connexion.php'); // Redirection vers la page connexion.
     }
     else
     {
@@ -33,8 +34,23 @@ if(isset($_POST['submit']))
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> <!-- Bootstrap -->
         <title>Inscription - Livre d'Or</title>
         <style>
+          /* Header w/ Bootstrap */
+          *,::before, ::after
+        {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+          position: relative;
+        }
+        body
+        {
+          height: 100vh;
+        }
+        /* Fin de Bootstrap */
         @keyframes move-background
         {
           from
@@ -139,6 +155,110 @@ if(isset($_POST['submit']))
   position: relative;
   z-index: 3;
   right: 20px;
+}@keyframes move-background
+        {
+          from
+          {
+            -webkit-transform: translate3d(0px, 0px, 0px);
+          }
+          to
+          { 
+            -webkit-transform: translate3d(1000px, 0px, 0px);
+          }
+        }
+        @-webkit-keyframes move-background
+        {
+          from
+          {
+            -webkit-transform: translate3d(0px, 0px, 0px);
+          }
+          to
+          { 
+            -webkit-transform: translate3d(1000px, 0px, 0px);
+          }
+}
+@-moz-keyframes move-background
+{    
+  from
+  {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to
+  { 
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+@-webkit-keyframes move-background
+{
+  from
+  {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to
+  { 
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+.fond-contenu
+{
+  position: fixed;
+  top: 0;
+  left:0;
+  bottom: 0;
+  right: 0;
+}
+.stars
+{
+  background: black url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  z-index: 0;
+}
+.twinkling
+{
+  width:10000px;
+  height: 100%;
+  background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
+  background-size: 1000px 1000px;
+  position: relative;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2; 
+  -moz-animation:move-background 70s linear infinite;
+  -ms-animation:move-background 70s linear infinite;
+  -o-animation:move-background 70s linear infinite;
+  -webkit-animation:move-background 70s linear infinite;
+  animation:move-background 70s linear infinite;
+}
+.clouds
+{
+  width:10000px;
+  height: 100%;
+  background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png") repeat;
+  background-size: 1000px 1000px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  -moz-animation:move-background 150s linear infinite;
+  -ms-animation:move-background 150s linear infinite;
+  -o-animation:move-background 150s linear infinite;
+  -webkit-animation:move-background 150s linear infinite;
+  animation:move-background 150s linear infinite;
+}
+.moon
+{
+  height: 70vh;
+  width:70vh;
+  position: relative;
+  z-index: 3;
+  right: 20px;
 }
 p1
 {
@@ -173,8 +293,8 @@ footer
     height: 64px;
     display: flex;
     justify-content: center;
-    margin-top: 14%;
-    position: absolute;
+    margin-top: 35%;
+    position: relative;
 }
 .formulaire
 {
@@ -188,7 +308,7 @@ footer
     height: 500px;
     border-radius: 10px;
     color: white;
-    position: relative;
+    position: fixed;
     margin-left: 36%;
 }
 input
@@ -204,6 +324,14 @@ input
     <div class="twinkling"></div>
     <div class="clouds"></div>
   </div>
+  <!-- Header réalisé avec Bootstrap -->
+  <header>
+    <nav class="nav bg-dark justify-content-center">
+      <a href="connexion.php" class="nav-link text-light">Se connecter</a>
+      <a href="livre-or.php" class="nav-link text-light">Livre d'Or</a>
+      <a href="index.php" class="nav-link text-light">Accueil</a>
+    </nav>
+  </header>
   <main>
     <p1>Inscription</p1><br />
     <div class="formulaire">
