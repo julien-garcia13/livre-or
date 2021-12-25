@@ -197,7 +197,7 @@ footer
     display: flex;
     justify-content: center;
     margin-top: 14%;
-    position: absolute;
+    position: relative;
 }
 </style>
 </head>
