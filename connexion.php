@@ -115,6 +115,10 @@ if(isset($_POST['Connexion']))
       display: flex;
       justify-content: center;
     }
+    input
+    {
+      display: flex;
+    }
     .formulaire
     {
       background-color: rgba(255, 255, 255, 0.3);
@@ -129,19 +133,50 @@ if(isset($_POST['Connexion']))
       color: white;
       position: relative;
     }
-    input
+    .connexion
     {
-      display: flex;
+      background: #1AAB8A;
+      color: #fff;
+      border: none;
+      position: relative;
+      height: 60px;
+      font-size: 1em;
+      padding: 0 2em;
+      cursor: pointer;
+      transition: 800ms ease all;
+      outline: none;
+      margin-left: 10%;
     }
-    .boutton
+    .connexion:hover
     {
-      margin-top: 10%;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      position: fixed;
-      margin-left: 15%;
-      }
+      background: #fff;
+      color: #1AAB8A;
+    }
+    .connexion:before,
+    button:after
+    {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 2px;
+      width: 0;
+      background: #1AAB8A;
+      transition: 400ms ease all;
+    }
+    .connexion:after
+    {
+      right: inherit;
+      top: inherit;
+      left: 0;
+      bottom: 0;
+    }
+    .connexion:hover:before,
+    .connexion:hover:after
+    {
+      width: 100%;
+      transition: 800ms ease all;
+    }
       </style>
       </head>
       <body>
@@ -161,7 +196,7 @@ if(isset($_POST['Connexion']))
               <form method="POST" action="connexion.php" align="center">
                 <input type="text" name="login" placeholder="Votre psuedo...">Login :<br /></input>
                 <input type="password" name="password">Mot de passe :<br /></input>
-                <input type="submit" value="Connexion" name="Connexion"></input>
+                <input class="connexion" type="submit" value="Connexion" name="Connexion"></input>
               </form>
             </div>
           </div>
