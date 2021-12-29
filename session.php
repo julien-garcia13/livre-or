@@ -37,7 +37,7 @@ if(!isset($_SESSION['id']))
     height: auto;
     position: absolute;
   }
-  p1
+  .session-affiche
   {
     display: flex;
     flex-direction: column;
@@ -125,17 +125,6 @@ if(!isset($_SESSION['id']))
     justify-content: center;
     position: relative;
     margin-top: 20%;
-  }
-  .session-affiche
-  {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    font-family: "gwendolyn";
-    font-size: 60px;
-    text-align: center;
-    position: relative;
-    color: gold;
   }
   </style>
   </head>
