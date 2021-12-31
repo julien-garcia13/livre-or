@@ -107,7 +107,7 @@ if(isset($_POST['submit']))
       display: flex;
       justify-content: center;
       position: relative;
-      margin-top: 5%;
+      margin-top: 15%;
     }
     .zone
     {
