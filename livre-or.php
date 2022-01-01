@@ -162,39 +162,46 @@ $data = $request->fetch();
     </head>
     <body>
       <img src="images/fond.jpg" class="fond">
-      <main>
-        <p1>Commentaires</p1><br />
-        <article>
-          <div class="categories">
-            <p2>Utilisateur</p2>
-            <p2>Date</p2>
-            <p2>Commentaire</p2>
-          </div>
-          <div class="grid-container">
-            <?php
-            // Je sélectionne la BDD commentaires pour en récupérer les données.
-            $request = $bdd->query('SELECT commentaires.commentaire,utilisateurs.login,commentaires.date FROM commentaires LEFT JOIN utilisateurs ON commentaires.id_utilisateur = utilisateurs.id');
-            ?>
-            <?php
-            while ($data = $request->fetch())
-            {
-              // Liste des commentaires
-              echo "<b><p2 class=\"user\">" . $data['login'] . "</p2></b>
-              <b><p2 class= \"date\">" . $data['date'] . "</p2></b></ul>
-              <b><p2 class= \"comm-en-question\">" . $data['commentaire'] . "</p2></b>";
-            }
-            ?>
+      <!-- Header réalisé avec Bootstrap -->
+      <header>
+        <nav class="nav bg-dark justify-content-center">
+          <a href="deconnexion.php" class="nav-link text-light">Déconnexion</a>
+          <a href="session.php" class="nav-link text-light">Retour</a>
+          <a href="profil.php" class="nav-link text-light">Modifier le profil</a>
+        </nav>
+        <main>
+          <p1>Commentaires</p1><br />
+          <article>
+            <div class="categories">
+              <p2>Utilisateur</p2>
+              <p2>Date</p2>
+              <p2>Commentaire</p2>
             </div>
-            <div class="champ-a-remplir">
-              <form method="POST" action="commentaire.php" style ="align-items:center">
-              <input type="text" name="write-comm" required="required" autocomplete="off" placeholder="Commentaire..."><br /></input>
-              <input class="post" type="submit" name="comm"></input>
-            </form>
-          </div>
-        </article>
-      </main>
-      <footer>
-        <a href="https://github.com/julien-garcia13/livre-or"><img class="GitHub" src="images/GitHub_Logo.png" alt="logo"></img></a>
-      </footer>
-    </body>
+            <div class="grid-container">
+              <?php
+              // Je sélectionne la BDD commentaires pour en récupérer les données.
+              $request = $bdd->query('SELECT commentaires.commentaire,utilisateurs.login,commentaires.date FROM commentaires LEFT JOIN utilisateurs ON commentaires.id_utilisateur = utilisateurs.id');
+              ?>
+              <?php
+              while ($data = $request->fetch())
+              {
+                // Liste des commentaires
+                echo "<b><p2 class=\"user\">" . $data['login'] . "</p2></b>
+                <b><p2 class= \"date\">" . $data['date'] . "</p2></b></ul>
+                <b><p2 class= \"comm-en-question\">" . $data['commentaire'] . "</p2></b>";
+              }
+              ?>
+              </div>
+              <div class="champ-a-remplir">
+                <form method="POST" action="commentaire.php" style ="align-items:center">
+                <input type="text" name="write-comm" required="required" autocomplete="off" placeholder="Commentaire..."><br /></input>
+                <input class="post" type="submit" name="comm"></input>
+              </form>
+            </div>
+          </article>
+        </main>
+        <footer>
+          <a href="https://github.com/julien-garcia13/livre-or"><img class="GitHub" src="images/GitHub_Logo.png" alt="logo"></img></a>
+        </footer>
+      </body>
 </html>
